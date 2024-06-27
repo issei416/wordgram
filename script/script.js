@@ -22,7 +22,7 @@ input.style.outline = "none"
 input.placeholder = "Search a word...";
 inputDiv.appendChild(input);
 search = document.createElement("img");
-search.classList.add("rounded-pill");
+search.classList.add("img-fluid","search");
 search.src = "./public/search.png"
 inputDiv.appendChild(search);
 main.appendChild(inputDiv);
@@ -30,7 +30,13 @@ main.appendChild(inputDiv);
 let wordDetails = document.createElement("div");
 wordDetails.classList.add("container")
 
-search.addEventListener("click", () => {
+search.addEventListener("click", (e) => {
+
+    if(input.value === "" ){
+        e.preventDefault();
+        window.alert("Please enter a word to search");
+        return;
+    }
     wordDetails.innerHTML = "";
     //api call
     url = `https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`

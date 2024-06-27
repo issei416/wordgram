@@ -1,3 +1,7 @@
 .search:hover {
     cursor: pointer;
 }
+
+.search {
+    border-radius: 12px;
+}
